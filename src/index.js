@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom'; // Changed to HashRouter
 import './output.css';
 import App from './App';
 import i18n from 'i18next';
@@ -15,22 +15,21 @@ i18n
       en: { translation: en },
       fa: { translation: fa },
     },
-    lng: localStorage.getItem('language') || 'en', // Load from localStorage
+    lng: localStorage.getItem('language') || 'en',
     fallbackLng: 'en',
     interpolation: { escapeValue: false },
   });
 
-// Save language to localStorage on change
 i18n.on('languageChanged', lng => {
-  console.log('i18next language changed to:', lng); // Debug log
+  console.log('i18next language changed to:', lng);
   localStorage.setItem('language', lng);
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Router>
       <App />
-    </BrowserRouter>
+    </Router>
   </React.StrictMode>
 );

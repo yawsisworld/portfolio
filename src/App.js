@@ -13,6 +13,8 @@ function App() {
   const { i18n } = useTranslation();
   const isRtl = i18n.language === 'fa';
 
+  console.log('App render - viewMode:', viewMode, 'currentPaintingId:', currentPaintingId, 'language:', i18n.language);
+
   return (
     <div className={`flex min-h-screen bg-white ${isRtl ? 'flex-row-reverse' : ''}`}>
       <Sidebar
@@ -47,19 +49,6 @@ function App() {
         <main className="flex-1">
           <Routes>
             <Route
-              path="/gallery/:yearRange"
-              element={
-                <Gallery
-                  viewMode={viewMode}
-                  setViewMode={setViewMode}
-                  currentPaintingId={currentPaintingId}
-                  setCurrentPaintingId={setCurrentPaintingId}
-                />
-              }
-              key={window.location.pathname}
-            />
-            <Route path="/about" element={<AboutPage />} />
-            <Route
               path="/"
               element={
                 <Gallery
@@ -69,8 +58,19 @@ function App() {
                   setCurrentPaintingId={setCurrentPaintingId}
                 />
               }
-              key="home"
             />
+            <Route
+              path="/gallery/:yearRange"
+              element={
+                <Gallery
+                  viewMode={viewMode}
+                  setViewMode={setViewMode}
+                  currentPaintingId={currentPaintingId}
+                  setCurrentPaintingId={setCurrentPaintingId}
+                />
+              }
+            />
+            <Route path="/about" element={<AboutPage />} />
           </Routes>
         </main>
       </div>
