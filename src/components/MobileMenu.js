@@ -123,7 +123,7 @@ function MobileMenu({ isOpen, toggleMenu, viewMode, setViewMode, currentPainting
               toggleMenu();
               console.log('Language switched to FA (mobile)');
             }}
-            className="text-sm text-gray-800 hover:text-blue-500 transition-colors duration-200"
+            className="text-sm text-gray-800 hover:text-blue-500 transition-colors mx-6 duration-200"
           >
             FA
           </button>

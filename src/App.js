@@ -17,6 +17,7 @@ function App() {
 
   return (
     <div className={`flex min-h-screen bg-white ${isRtl ? 'flex-row-reverse' : ''}`}>
+      {/* Sidebar for desktop */}
       <Sidebar
         viewMode={viewMode}
         setViewMode={setViewMode}
@@ -27,6 +28,7 @@ function App() {
         className={`flex flex-col w-full ${isRtl ? 'md:mr-64' : 'md:ml-64'}`}
         dir={isRtl ? 'rtl' : 'ltr'}
       >
+        {/* Mobile navbar */}
         <div className="md:hidden bg-white p-4 flex justify-between items-center sticky top-0 z-20 shadow-sm">
           <h1 className={`text-2xl ${i18n.language === 'en' ? 'font-playfair' : 'font-vazirmatn'} text-gray-800`}>
             {i18n.language === 'en' ? 'Yasamin Vosoughi' : 'یاسمین وثوقی'}

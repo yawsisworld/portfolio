@@ -118,7 +118,7 @@ function Sidebar({ viewMode, setViewMode, currentPaintingId, setCurrentPaintingI
             i18n.changeLanguage('en');
             console.log('Language switched to EN');
           }}
-          className="text-sm text-gray-800 hover:text-blue-500 transition-colors duration-200"
+          className="text-sm text-gray-800 hover:text-blue-500 transition-colors mx-6 duration-200"
         >
           EN
         </button>
