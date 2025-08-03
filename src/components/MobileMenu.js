@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
 import { paintings } from '../data/paintings';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom'; // Added Link
 import { FaInstagram, FaEnvelope } from 'react-icons/fa';
 
 function MobileMenu({ isOpen, toggleMenu, viewMode, setViewMode, currentPaintingId, setCurrentPaintingId }) {
@@ -25,22 +25,22 @@ function MobileMenu({ isOpen, toggleMenu, viewMode, setViewMode, currentPainting
     <div className="absolute top-16 left-0 w-full bg-white p-6 shadow-lg z-20" dir={isRtl ? 'rtl' : 'ltr'}>
       <nav className="space-y-3">
         {yearRanges.map(range => (
-          <a
+          <Link
             key={range}
-            href={`/gallery/${range}`}
+            to={`/gallery/${range}`}
             className="block text-center text-gray-800 hover:text-blue-500 text-lg transition-colors duration-200"
             onClick={toggleMenu}
           >
             {t(range)}
-          </a>
+          </Link>
         ))}
-        <a
-          href="/about"
+        <Link
+          to="/about"
           className="block text-center text-gray-800 hover:text-blue-500 text-lg transition-colors duration-200"
           onClick={toggleMenu}
         >
           {t('about')}
-        </a>
+        </Link>
       </nav>
       <div className="mt-6 space-y-3">
         <button
@@ -113,7 +113,7 @@ function MobileMenu({ isOpen, toggleMenu, viewMode, setViewMode, currentPainting
               toggleMenu();
               console.log('Language switched to EN (mobile)');
             }}
-            className="text-sm text-gray-800 hover:text-blue-500 transition-colors mx-6 duration-200"
+            className="text-sm text-gray-800 hover:text-blue-500 transition-colors duration-200"
           >
             EN
           </button>

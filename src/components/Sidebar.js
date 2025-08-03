@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
 import { paintings } from '../data/paintings';
 import { FaInstagram, FaEnvelope } from 'react-icons/fa';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom'; // Added Link
 
 function Sidebar({ viewMode, setViewMode, currentPaintingId, setCurrentPaintingId }) {
   const { t, i18n } = useTranslation();
@@ -34,20 +34,20 @@ function Sidebar({ viewMode, setViewMode, currentPaintingId, setCurrentPaintingI
         <div className="w-full space-y-4">
           <nav className="space-y-2">
             {yearRanges.map(range => (
-              <a
+              <Link
                 key={range}
-                href={`/gallery/${range}`}
+                to={`/gallery/${range}`}
                 className={`block ${isRtl ? 'text-right' : 'text-left'} text-gray-800 hover:text-blue-500 transition-colors duration-200`}
               >
                 {t(range)}
-              </a>
+              </Link>
             ))}
-            <a
-              href="/about"
+            <Link
+              to="/about"
               className={`block ${isRtl ? 'text-right' : 'text-left'} text-gray-800 hover:text-blue-500 transition-colors duration-200`}
             >
               {t('about')}
-            </a>
+            </Link>
           </nav>
           <div className="space-y-2">
             <button
@@ -118,7 +118,7 @@ function Sidebar({ viewMode, setViewMode, currentPaintingId, setCurrentPaintingI
             i18n.changeLanguage('en');
             console.log('Language switched to EN');
           }}
-          className="text-sm text-gray-800 hover:text-blue-500 transition-colors duration-200 mx-6"
+          className="text-sm text-gray-800 hover:text-blue-500 transition-colors duration-200"
         >
           EN
         </button>
