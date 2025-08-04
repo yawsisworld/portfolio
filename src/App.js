@@ -16,7 +16,7 @@ function App() {
   console.log('App render - viewMode:', viewMode, 'currentPaintingId:', currentPaintingId, 'language:', i18n.language);
 
   return (
-    <div className={`min-h-screen bg-white ${isRtl ? 'flex-row-reverse' : 'flex-row'}`}>
+    <div className={`flex min-h-screen bg-white ${isRtl ? 'flex-row-reverse' : ''}`}>
       {/* Sidebar for desktop */}
       <Sidebar
         viewMode={viewMode}

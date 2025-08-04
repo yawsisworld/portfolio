@@ -76,7 +76,7 @@ function PaintingSingle({ painting, onPrevious, onNext }) {
         >
           <div
             className="relative max-w-4xl w-full m-4"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking image
           >
             <button
               className="absolute top-4 right-4 text-white text-3xl bg-gray-800 rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-600 transition-colors duration-200"
