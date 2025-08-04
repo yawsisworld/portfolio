@@ -36,6 +36,7 @@ function App() {
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="text-2xl text-gray-800 hover:text-blue-500 transition-colors duration-200"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           >
             ☰
           </button>
