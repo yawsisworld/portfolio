@@ -21,11 +21,9 @@ function Sidebar({ viewMode, setViewMode, currentPaintingId, setCurrentPaintingI
     return ids;
   }, [yearRange]);
 
-  console.log('Sidebar render - viewMode:', viewMode);
-
   return (
     <div
-      className={`flex flex-col w-64 bg-white p-4 h-screen fixed top-0 ${isRtl ? 'right-0' : 'left-0'} hidden md:flex`}
+      className={`flex flex-col w-64 bg-white p-4 h-screen fixed top-0 ${isRtl ? 'right-0' : 'left-0'} hidden md:block shadow-md z-10`}
       dir={isRtl ? 'rtl' : 'ltr'}
       role="navigation"
       aria-label="Main sidebar navigation"
@@ -36,7 +34,7 @@ function Sidebar({ viewMode, setViewMode, currentPaintingId, setCurrentPaintingI
         <p className={`text-sm text-gray-600 ${isRtl ? 'text-right' : 'text-left'} font-vazirmatn mt-2`}>{t('paintings')}</p>
       </div>
 
-      {/* Navigation links and controls, vertically centered */}
+      {/* Navigation links vertically centered */}
       <div className="flex-1 flex items-center">
         <div className="w-full space-y-4">
           <nav className="space-y-2">
@@ -44,7 +42,7 @@ function Sidebar({ viewMode, setViewMode, currentPaintingId, setCurrentPaintingI
               <Link
                 key={range}
                 to={`/gallery/${range}`}
-                className={`block ${isRtl ? 'text-right' : 'text-left'} text-gray-800 hover:text-pink-400 transition-colors duration-200`}
+                className={`block ${isRtl ? 'text-right' : 'text-left'} text-gray-800 hover:text-blue-500 transition-colors duration-200`}
                 aria-label={`View paintings from ${t(range)}`}
               >
                 {t(range)}
@@ -52,7 +50,7 @@ function Sidebar({ viewMode, setViewMode, currentPaintingId, setCurrentPaintingI
             ))}
             <Link
               to="/about"
-              className={`block ${isRtl ? 'text-right' : 'text-left'} text-gray-800 hover:text-pink-400 transition-colors duration-200`}
+              className={`block ${isRtl ? 'text-right' : 'text-left'} text-gray-800 hover:text-blue-500 transition-colors duration-200`}
               aria-label="About page"
             >
               {t('about')}
@@ -69,7 +67,7 @@ function Sidebar({ viewMode, setViewMode, currentPaintingId, setCurrentPaintingI
                 }
               }}
               disabled={viewMode !== 'single' || paintingIds.length === 0}
-              className={`block w-full ${isRtl ? 'text-right' : 'text-left'} text-sm text-gray-800 disabled:text-gray-400 hover:text-pink-400 transition-colors duration-200`}
+              className={`block w-full ${isRtl ? 'text-right' : 'text-left'} text-sm text-gray-800 disabled:text-gray-400 hover:text-blue-500 transition-colors duration-200`}
               aria-label="Previous painting"
             >
               {t('previous')}
@@ -84,7 +82,7 @@ function Sidebar({ viewMode, setViewMode, currentPaintingId, setCurrentPaintingI
                 }
               }}
               disabled={viewMode !== 'single' || paintingIds.length === 0}
-              className={`mb-6 block w-full ${isRtl ? 'text-right' : 'text-left'} text-sm text-gray-800 disabled:text-gray-400 hover:text-pink-400 transition-colors duration-200`}
+              className={`block w-full ${isRtl ? 'text-right' : 'text-left'} text-sm text-gray-800 disabled:text-gray-400 hover:text-blue-500 transition-colors duration-200`}
               aria-label="Next painting"
             >
               {t('next')}
@@ -95,7 +93,7 @@ function Sidebar({ viewMode, setViewMode, currentPaintingId, setCurrentPaintingI
                   setViewMode('grid');
                   console.log('View Grid clicked (Sidebar), new viewMode: grid');
                 }}
-                className={`text-sm px-2 py-1 rounded ${viewMode === 'grid' ? 'bg-pink-300 text-white' : 'bg-gray-200 text-gray-800'} hover:bg-pink-400 hover:text-white transition-colors duration-200`}
+                className={`text-sm px-2 py-1 rounded ${viewMode === 'grid' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'} hover:bg-blue-500 hover:text-white transition-colors duration-200`}
                 aria-label="Switch to grid view"
               >
                 {t('viewGrid')}
@@ -110,7 +108,7 @@ function Sidebar({ viewMode, setViewMode, currentPaintingId, setCurrentPaintingI
                   }
                   console.log('View Single clicked (Sidebar), new viewMode: single');
                 }}
-                className={`text-sm px-2 py-1 rounded ${viewMode === 'single' ? 'bg-pink-300 text-white' : 'bg-gray-200 text-gray-800'} hover:bg-pink-400 hover:text-white transition-colors mr-6 duration-200`}
+                className={`text-sm px-2 py-1 rounded ${viewMode === 'single' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'} hover:bg-blue-500 hover:text-white transition-colors duration-200`}
                 aria-label="Switch to single view"
               >
                 {t('viewSingle')}
@@ -128,17 +126,17 @@ function Sidebar({ viewMode, setViewMode, currentPaintingId, setCurrentPaintingI
           rel="noopener noreferrer"
           aria-label="Visit Instagram profile"
         >
-          <FaInstagram className="w-5 h-5 text-gray-600 hover:text-pink-400 transition-colors duration-200" />
+          <FaInstagram className="w-5 h-5 text-gray-600 hover:text-blue-500 transition-colors duration-200" />
         </a>
         <a href="mailto:yawsisworld@gmail.com" aria-label="Send email">
-          <FaEnvelope className="w-5 h-5 text-gray-600 hover:text-pink-400 transition-colors duration-200" />
+          <FaEnvelope className="w-5 h-5 text-gray-600 hover:text-blue-500 transition-colors duration-200" />
         </a>
         <button
           onClick={() => {
             i18n.changeLanguage('en');
             console.log('Language switched to EN');
           }}
-          className="text-sm text-gray-800 hover:text-pink-400 transition-colors duration-200"
+          className="text-sm text-gray-800 hover:text-blue-500 transition-colors mx-6 duration-200"
           aria-label="Switch to English"
         >
           EN
@@ -148,7 +146,7 @@ function Sidebar({ viewMode, setViewMode, currentPaintingId, setCurrentPaintingI
             i18n.changeLanguage('fa');
             console.log('Language switched to FA');
           }}
-          className="text-sm text-gray-800 hover:text-pink-400 transition-colors mr-6 duration-200"
+          className="text-sm text-gray-800 hover:text-blue-500 transition-colors duration-200"
           aria-label="Switch to Persian"
         >
           FA
